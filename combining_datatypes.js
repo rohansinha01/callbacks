@@ -43,3 +43,96 @@ function powerButton() {//creating an outer function
     }
 }
 powerButton()()//invoking the function
+
+// Model a Vending Machine Model a vending machine
+
+// a vending machine is an object
+// it has an array of snacks (make 3 snacks)
+// snacks are objects that have a name and a price
+// a vending machine has a function vend that allows user to enter the array position (a number) of the snack and then that snack will be returned
+// Be able to call vendingMachine.vend() with a valid integer to return a snack
+const vendingMachine = {snacks: [
+     {name: "Snickers", price: 1},{name: "Butterfinger", price: 1},{name: "Baby Ruth", price: 1}]
+}//created an object with an array of objects
+function vend(a) {//created a function that takes the parameter of a variable
+    console.log(`${this.snacks[a].name}`)//I want the function to call this (vendingMachine) object, the parameter (index in the array of object) and the name of the index.
+}
+vendingMachine.vend = vend //need to add the function to the object
+vendingMachine.vend(2) //call the object and function
+
+// Callbacks
+// Make a function add that takes two arguments (numbers) and sums them together
+const add = (num1,num2) => { //putting in num1 and b as my parameters
+    console.log(num1 + num2)//want the function to read num1 + num2
+   }
+add(3,4)// invoke 3 + 4
+// Make a function subtract that takes two arguments (numbers) and subtracts them
+const subtract = (num1,num2) => { //putting in num1 and d as my parameters
+    console.log(num1 - num2)//want the function to read num1 - num2
+}
+subtract(7,6)//invoke 7 - 6
+// Make a function multiply that takes two arguments and multiplies them
+const multiply = (num1,num2) => {//putting in num1 and num2 as my parameters
+    console.log(num1 * num2)//want the function to read num1 * num2
+}
+multiply(8,9)//invoke 8 * 9 
+// Make a function divide that takes two arguments and divides them
+const divide = (num1,num2) => {//putting in num1 and num2 as my parameters
+    console.log(num1 / num2)//want the function to read num1 / num2
+}
+divide(9,3)//invoke 9 divided by 3
+// Make a function calculate that takes three arguments. Assume the two arguments are a number ie num1, num2 and a function called operates (a callback).
+const calculate = (num1,num2,operates) => { //making a function that takes in 2 numbers and another function that is a callback
+    operates(num1,num2)//callback function takes in the two numbers and then whatever we defined earlier, we can use.
+}
+
+// Make it so that when calculate is invoked, the callback "operates" on the numbers and returns the value.
+// Call calculate 4 times, each time using one of the operation functions you wrote
+calculate(7,8,add)//gets us to take num1 and num2 and add
+calculate(34,27,subtract)//gets us to take num1 and num2 and subtract
+calculate(3,4,multiply)//gets us to take num1 and num2 and multiply
+calculate(8,2,divide)//gets us to take num1 and num2 and use divide.
+
+// Function definition placement
+// Clean up this code, so that it works and has function definitions in the correct place
+
+// bar();
+// const bar = () => {
+//     console.log('bar here');
+// }
+// foo();
+
+// const foo = () => {
+//     console.log('foo here');
+// }
+
+
+// const bar = () => {
+//     console.log('bar here');
+// }
+// const foo = () => {
+//     console.log('foo here');
+// }
+// bar(); //moved bar here because the initial location was before the function was defined.
+// foo(); //moved foo here because the initial location was before the function was defined.
+
+// foo();
+
+// const foo ()=>{ //SyntaxError: Missing initializer in const declaration means it was missing the = to make it a function
+//     console.log('hi');
+// }
+
+// foo();
+
+// const foo = ()=>{ //ReferenceError: Cannot access 'foo' before initialization means that the foo is being called before it's been written.
+//     console.log('hi');
+// }
+
+
+
+const foo = ()=>{
+    console.log('hi');
+}
+foo(); //just needed to add the = sign to make it a function and move the call of the function after the function had been written.
+
+
